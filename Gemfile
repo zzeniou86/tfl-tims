@@ -6,3 +6,5 @@ gem 'rake'
 gem 'puma'
 gem 'sidekiq'
 gem 'redis'
+gem 'nokogiri'
+
