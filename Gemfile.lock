@@ -3,6 +3,7 @@ GEM
   specs:
     concurrent-ruby (1.0.4)
     connection_pool (2.2.1)
+    json (2.0.2)
     mini_portile2 (2.1.0)
     nokogiri (1.7.0.1)
       mini_portile2 (~> 2.1.0)

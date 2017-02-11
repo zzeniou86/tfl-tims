@@ -6,6 +6,7 @@ require 'redis'
 require 'sidekiq/api'
 require 'nokogiri'
 require 'open-uri'
+require 'json'
 
 class Quiqup < Sinatra::Base
   get "/" do
