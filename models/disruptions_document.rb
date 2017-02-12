@@ -14,4 +14,14 @@ class DisruptionsDocument
     end
   end
 
+  def self.get_etag(url)
+    uri_url = URI(url)
+    etag = nil
+    Net::HTTP.start(uri_url.host, uri_url.port, use_ssl: true) do |http|
+      response = http.head(uri_url.path)
+      etag = response["etag"]
+    end
+    etag
+  end
+
 end
