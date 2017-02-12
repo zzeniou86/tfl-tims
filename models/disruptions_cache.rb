@@ -12,5 +12,14 @@ class DisruptionsCache
         $redis.set "etag", doc_etag
     end      
   end
-  
+
+  def self.fetch(key, seconds)
+    cached_coords = $redis.get key
+    return JSON.parse(cached_coords) if cached_coords
+
+    new_coords = yield
+    $redis.set key, new_coords.to_json
+    $redis.expire key, seconds if seconds
+    new_coords
+  end
 end
