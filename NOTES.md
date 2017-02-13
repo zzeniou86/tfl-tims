@@ -8,7 +8,7 @@ With Sinatra, I can use exactly what I need, while demonstrating my capabilities
 
 The drawback of this approach is that some extra code is required to do things
 
-Another drawback is that, for an example, Rails.cache is well tested and documented and implementing a similar solution from scratch isn't the best idea for production app. I'll be better off to use a well tested Gem.
+Another drawback is that, for an example, Rails.cache is well tested and documented and implementing a similar solution from scratch isn't the best idea for production app. We would be better off if we use a well tested Gem.
 
 Nevertheless, for the purposes of the code, Sinatra is a good choice.
 

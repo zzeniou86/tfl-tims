@@ -1,6 +1,6 @@
 # TFL TIMS Feed
 
-**(Please read [NOTES.md](NOTES.md) for thoughts, comments and approach for doing the interview test)**
+**(Please read [NOTES.md](NOTES.md) for thoughts, comments and approach)**
 
 A simple sinatra app that consumes the XML feed and shows on a Google Maps the locations of the disruptions.
 
@@ -45,6 +45,9 @@ Alternatively: run these commands in two separate terminal windows:
 
 Navigate to `http://localhost:5000/`
 
+![Screenshot](/screenshot.png)
+
+
 ## Testing
 
 Run `bundle exec rake test` to run the tests
@@ -53,7 +56,8 @@ Run `bundle exec rake test` to run the tests
 ## TODO
 
 *   Provide API endpoint (to serve JSON)
-*   Google Maps Index: Fetch new coordinates every couple seconds to add real-time updates.
+*   Write a better index.html
+*   Google Maps: Fetch new coordinates every couple seconds to add real-time updates.
 *   Catch errors and handle them
 *   Use XML::SAX::Parser instead of XPATH for optimized parsing
 *   Use stubs and mocks for DisruptionsDocument.new and DisruptionsCache.fetch and .DisruptionsCache
