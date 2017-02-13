@@ -1,4 +1,4 @@
+require './config/initializer'
 require './app'
-require './initializer'
 
 run Quiqup.new

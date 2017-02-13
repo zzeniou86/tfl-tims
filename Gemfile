@@ -8,4 +8,5 @@ gem 'sidekiq'
 gem 'redis'
 gem 'nokogiri'
 gem 'json'
+gem 'configatron'
 
