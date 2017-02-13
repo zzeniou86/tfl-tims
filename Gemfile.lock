@@ -6,12 +6,15 @@ GEM
     connection_pool (2.2.1)
     json (2.0.2)
     mini_portile2 (2.1.0)
+    minitest (5.10.1)
     nokogiri (1.7.0.1)
       mini_portile2 (~> 2.1.0)
     puma (3.7.0)
     rack (1.6.5)
     rack-protection (1.5.3)
       rack
+    rack-test (0.6.3)
+      rack (>= 1.0)
     rake (12.0.0)
     redis (3.3.3)
     sidekiq (4.2.9)
@@ -31,8 +34,10 @@ PLATFORMS
 DEPENDENCIES
   configatron
   json
+  minitest
   nokogiri
   puma
+  rack-test
   rake
   redis
   sidekiq

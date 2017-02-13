@@ -9,4 +9,7 @@ gem 'redis'
 gem 'nokogiri'
 gem 'json'
 gem 'configatron'
-
+group :test do
+  gem 'minitest'
+  gem "rack-test", require: "rack/test"
+end
