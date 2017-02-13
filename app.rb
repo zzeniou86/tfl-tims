@@ -13,12 +13,12 @@ $redis ||= Redis.new
 
 class Quiqup < Sinatra::Base
   get "/" do
+    @maps_key = configatron.google_maps_key
     @list = DisruptionsCache.fetch("coords", 60) do
-      #failsafe code in case something goes wrong with worker / cache
+      # Can be used for standalone use without sidekiq, or as failsafe when something goes wrong with sidekiq      .
       document = DisruptionsDocument.new(configatron.disruptions_url, configatron.disruptions_xpath)
       document.parse_coordinates
     end
-    @maps_key = configatron.google_maps_key
     erb :index
   end
 end

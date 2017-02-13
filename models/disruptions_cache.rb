@@ -3,6 +3,7 @@ $redis ||= Redis.new
 
 class DisruptionsCache
 
+  # Compare etags. If different then yield block and cache results. 
   def self.cache(doc_etag)
     cached_etag = $redis.get "etag"
     if doc_etag != cached_etag 
@@ -14,12 +15,12 @@ class DisruptionsCache
   end
 
   def self.fetch(key, seconds)
-    cached_coords = $redis.get key
-    return JSON.parse(cached_coords) if cached_coords
+    results = $redis.get key
+    return JSON.parse(results) if results
 
-    new_coords = yield
-    $redis.set key, new_coords.to_json
+    new_results = yield
+    $redis.set key, new_results.to_json
     $redis.expire key, seconds if seconds
-    new_coords
+    new_results
   end
 end

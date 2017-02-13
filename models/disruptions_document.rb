@@ -1,6 +1,8 @@
 require 'nokogiri'
 require 'open-uri'
 
+# TODO: Refactor class to use XML::SAX::Parser for optimized parsing. http://www.rubydoc.info/gems/nokogiri/Nokogiri/XML/SAX/Parser
+
 class DisruptionsDocument
 
   def initialize(url, xpath)
@@ -8,6 +10,8 @@ class DisruptionsDocument
     @xpath = xpath
   end
 
+  # Using XPATH, find the coordinates and construct the output array
+  # (Change XPATH string in config/settings.rb)
   def parse_coordinates
     @disruptions.xpath(@xpath).map do |node|
       lng, lat = node.text.split(",")
@@ -15,6 +19,7 @@ class DisruptionsDocument
     end
   end
 
+  # HEAD request to get the etag.
   def self.get_etag(url)
     uri_url = URI(url)
     etag = nil
