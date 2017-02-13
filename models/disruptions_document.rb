@@ -3,12 +3,13 @@ require 'open-uri'
 
 class DisruptionsDocument
 
-  def initialize(url)
+  def initialize(url, xpath)
     @disruptions = Nokogiri::XML(open(url))
+    @xpath = xpath
   end
 
   def parse_coordinates
-    @disruptions.xpath("//xmlns:Disruptions/xmlns:Disruption/xmlns:CauseArea/xmlns:DisplayPoint/xmlns:Point/xmlns:coordinatesLL").map do |node|
+    @disruptions.xpath(@xpath).map do |node|
       lng, lat = node.text.split(",")
       {lat: lat.to_f, lng: lng.to_f}
     end
